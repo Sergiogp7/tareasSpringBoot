@@ -1,13 +1,21 @@
 package com.example.ProyectoSpring.servicio;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.List;
 
-@SpringBootApplication
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.ProyectoSpring.entidad.Producto;
+import com.example.ProyectoSpring.repositorio.productoRepository;
+
+@Service
 public class productoService {
 
-	public static void main(String[] args) {
-		SpringApplication.run(productoService.class, args);
+@Autowired
+private productoRepository productoRepository;
+	
+	public List<Producto> listarTodos() {
+		return productoRepository.findAll();
 	}
 
 }
