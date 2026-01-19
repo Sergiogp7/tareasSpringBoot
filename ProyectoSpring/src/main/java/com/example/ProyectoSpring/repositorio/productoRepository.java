@@ -1,5 +1,9 @@
 package com.example.ProyectoSpring.repositorio;
 
-public class productoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.ProyectoSpring.entidad.Producto;
+
+public interface productoRepository extends JpaRepository<Producto, Long> {
     
 }
