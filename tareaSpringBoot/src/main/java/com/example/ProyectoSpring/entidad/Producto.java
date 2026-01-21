@@ -71,7 +71,7 @@ public class Producto {
         this.stock = stock;
     }
 
-    public Pedido getPedido(Pedido pedido) {
+    public Pedido getPedido() {
         return pedido;
     }
 
