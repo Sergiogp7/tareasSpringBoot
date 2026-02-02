@@ -9,7 +9,7 @@ import com.example.ProyectoSpring.entidad.Producto;
 import com.example.ProyectoSpring.repositorio.productoRepository;
 
 @Service
-public class productoService {
+public class ProductoService {
 
 @Autowired
 private productoRepository productoRepository;
