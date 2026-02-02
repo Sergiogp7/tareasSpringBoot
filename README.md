@@ -10,9 +10,9 @@
 
 ## 3) Arquitectura
 Explica brevemente cómo has organizado:
-- Controller: productoController
-- Service: productoService
-- Repository: 
+- Controller: ProductoController
+- Service: ProductoService
+- Repository: ProductoRepository
 - Entity: Producto
 
 ## 4) Base de datos elegida (marca una)
@@ -22,21 +22,34 @@ Explica brevemente cómo has organizado:
 
 ## 5) Configuración de la base de datos
 ### 5.1 Dependencias añadidas
-(Indica la dependencia del driver que has usado)
+         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        
 
 ### 5.2 application.properties / application.yml
-(Pega aquí tu configuración SIN contraseñas reales si es necesario)
+spring.application.name=ProyectoSpring
+server.port=9093
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
+spring.datasource.driver-class-name=org.h2.Driver
+spring.jpa.hibernate.ddl-auto=create-drop
 
 ### 5.3 Pasos para crear la BD (si aplica)
-- MySQL: CREATE DATABASE ...
-- PostgreSQL: createdb ...
 
 ## 6) Cómo ejecutar el proyecto
 1. Requisitos (Java versión, Maven/Gradle, DB instalada si aplica)
 2. Comando de arranque:
-   - ./mvnw spring-boot:run   (o equivalente)
+   - ./mvnw spring-boot:run
 3. URL de acceso:
-   - http://localhost:8080/...
+   - http://localhost:9095/...
 
 ## 7) Pantallas / Rutas MVC
 - GET /entidad (listar)
