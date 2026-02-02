@@ -1,0 +1,16 @@
+
+<div th:unless="${productos.isEmpty()}">
+    <table class="table">
+        <tr th:each="producto : ${productos}">
+            <td><span th:text="${producto.nombre}"></span></td>
+            <td><span th:text="${producto.descripcion}"></span></td>
+            <!-- Ver detalle: /productos/{id} -->
+            <td><a th:href="@{/productos/{id}(id=${producto.id})}"> Ver detalle</a>
+            </td> <!-- Editar: /productos/{id}/editar -->
+            <td><a th:href="@{/productos/{id}/editar(id=${producto.id})}">Editar</a>
+            </td> <!-- Eliminar: /productos/{id}/eliminar -->
+            <td><a th:href="@{/productos/{id}/eliminar(id=${producto.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</div>
