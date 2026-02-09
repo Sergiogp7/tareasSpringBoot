@@ -1,9 +1,11 @@
 package com.example.ProyectoSpring.repositorio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.example.ProyectoSpring.entidad.Producto;
 
-public interface productoRepository extends JpaRepository<Producto, Long> {
+@Repository
+public interface ProductoRepository extends JpaRepository<Producto, Long> {
     
 }

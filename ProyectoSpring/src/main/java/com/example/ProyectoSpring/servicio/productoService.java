@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.ProyectoSpring.entidad.Producto;
-import com.example.ProyectoSpring.repositorio.productoRepository;
+import com.example.ProyectoSpring.repositorio.ProductoRepository;
 
 @Service
 public class ProductoService {
 
 @Autowired
-private productoRepository productoRepository;
+private ProductoRepository productoRepository;
 	
 	public List<Producto> listarTodos() {
 		return productoRepository.findAll();
