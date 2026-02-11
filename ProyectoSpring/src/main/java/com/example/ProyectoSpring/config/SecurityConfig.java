@@ -20,9 +20,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/login", "/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
+                .requestMatchers("/login", "/css/**", "/js/**", "/images/**", "/webjars/**", "/h2/**").permitAll()
                 .anyRequest().authenticated()
             )
+            .csrf(csrf -> csrf.ignoringRequestMatchers("/h2/**"))
+            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
             .formLogin((form) -> form
                 .loginPage("/login")
                 .defaultSuccessUrl("/productos", true)

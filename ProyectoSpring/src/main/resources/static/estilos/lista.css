@@ -1,0 +1,60 @@
+/* Estilos para lista.html */
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Acciones y botones */
+.btn-nuevo {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn-nuevo:hover {
+    background-color: #0056b3;
+}
+
+.btn-editar {
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.btn-editar:hover {
+    background-color: #e0a800;
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+th {
+    background-color: #f2f2f2;
+}
