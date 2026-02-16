@@ -1,4 +1,3 @@
-/* Estilos para lista.html */
 body {
     font-family: sans-serif;
     padding: 20px;
@@ -16,7 +15,7 @@ td {
     text-align: left;
 }
 
-/* Acciones y botones */
+
 .btn-nuevo {
     background-color: #007bff;
     color: white;

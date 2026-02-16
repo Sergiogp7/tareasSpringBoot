@@ -15,34 +15,36 @@ import com.example.ProyectoSpring.servicio.ProductoService;
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
-    @Autowired
+	@Autowired
     private ProductoService productoService;
 
-    @GetMapping
+	@GetMapping
     public String listarProductos(Model model) {
         model.addAttribute("productos", productoService.listarTodos());
-        return "productos/lista";
-    }
+		return "productos/lista";
+	}
 
-    @GetMapping("/nuevo")
-    public String mostrarFormularioDeRegistrar(Model model) {
-        model.addAttribute("producto", new Producto());
-        return "productos/formulario";
-    }
+	@GetMapping("/nuevo")
+	public String nuevo(Model m) {
+		Producto p = new Producto();
+		m.addAttribute("producto", p);
+		return "productos/formulario";
+	}
 
-    @PostMapping
-    public String guardarProducto(@ModelAttribute("producto") Producto producto) {
-        productoService.guardar(producto);
-        return "redirect:/productos";
-    }
+	@PostMapping
+	public String guardar(@ModelAttribute("producto") Producto p) {
+		productoService.guardar(p);
+		return "redirect:/productos";
+	}
 
-    @GetMapping("/editar/{id}")
-    public String mostrarFormularioDeEditar(@PathVariable Long id, Model model) {
-        model.addAttribute("producto", productoService.obtenerPorId(id));
-        return "productos/formulario";
-    }
+	@GetMapping("/editar/{id}")
+	public String editar(@PathVariable Long id, Model m) {
+		Producto p = productoService.obtenerPorId(id);
+		m.addAttribute("producto", p);
+		return "productos/formulario";
+	}
 
-    @PostMapping("/{id}")
+	@PostMapping("/{id}")
     public String actualizarProducto(@PathVariable Long id, @ModelAttribute("producto") Producto producto) {
         Producto productoExistente = productoService.obtenerPorId(id);
         productoExistente.setId(id);
@@ -50,14 +52,14 @@ public class ProductoController {
         productoExistente.setDescripcion(producto.getDescripcion());
         productoExistente.setPrecio(producto.getPrecio());
         productoExistente.setStock(producto.getStock());
-        
+		
         productoService.guardar(productoExistente);
-        return "redirect:/productos";
-    }
+		return "redirect:/productos";
+	}
 
-    @GetMapping("/eliminar/{id}")
-    public String eliminarProducto(@PathVariable Long id) {
-        productoService.eliminar(id);
-        return "redirect:/productos";
-    }
+	@GetMapping("/eliminar/{id}")
+	public String borrar(@PathVariable Long id) {
+		productoService.eliminar(id);
+		return "redirect:/productos";
+	}
 }
